@@ -37,10 +37,6 @@ nlp_pt = nlp.preprocessing_ptBR()
 
 Esse método remove de uma string acentos, caracteres especiais, números e converte todas de maíusculo para minúsculo:
 
-* plural2_singular(self,tokens):
-
-Esse método converte uma lista de tokens que contenham termos no plural para singular:
-
 ```sh
 nlp_pt.clear_text('Esse é um exemplo de texto limpo com o método clear_text() 999 !!!')
 ```
