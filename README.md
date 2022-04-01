@@ -7,7 +7,7 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-# BIBLIOTECA PARA PROCESSAMENTO DE LINGUAGEM NATURAL EM PORTUGUÊS - nlp_portugues 
+# Biblioteca para Processamento de Linguagem Natrual em Português - nlp_portugues 
 
 Conteúdo para preprocessamento de Natural Language Processing (NLP) completo no idioma português
 Resumo: Conteúdo criado durante o PhD em Information Science pela Universidade Federal de Minas Gerais  
