@@ -83,12 +83,15 @@ class preprocessing_ptBR():
         import re
 
         #Unicode normalize transforma um caracter em seu equivalente em latin
-        nfkd             = unicodedata.normalize('NFKD', text_str)
-        text_no_accent   = u"".join([c for c in nfkd if not unicodedata.combining(c)])
-        # Usa expressão regular para retornar a palavra apenas com números, letras e espaço\n",
-        text       = re.sub('[^a-zA-Z ]', '', text_no_accent.lower()).split(" ")
-        text_clean = [w for w in text if w != '']
-        return ' '.join(map(str,text_clean))   
+        try: 
+            nfkd             = unicodedata.normalize('NFKD', text_str)
+            text_no_accent   = u"".join([c for c in nfkd if not unicodedata.combining(c)])
+            # Usa expressão regular para retornar a palavra apenas com números, letras e espaço\n",
+            text       = re.sub('[^a-zA-Z ]', '', text_no_accent.lower()).split(" ")
+            text_clean = [w for w in text if w != '']
+            return ' '.join(map(str,text_clean))   
+        except:
+            return text_str            
     
     #por padrão, não remove nem verbos nem adjetivos, apenas stop_words
     def proc_text(self, text, verbs=False, string=False, text_add = '',adjectives=False, plural=False):
