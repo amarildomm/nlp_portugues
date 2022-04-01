@@ -39,8 +39,8 @@ Esse método converte uma lista de tokens que contenham termos no plural para si
 
 ```sh
 nlp_pt.clear_text('Esse é um exemplo texto limpo com o método clear_text() 999 !!!')
+'esse e um exemplo texto limpo com o metodo cleartext'
 ```
-_'esse e um exemplo texto limpo com o metodo cleartext'_
 
 2. Método plural2_singular():
 Esse método converte uma lista de tokens que contenham termos no plural para singular.
