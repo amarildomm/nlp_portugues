@@ -70,6 +70,26 @@ Esse é o método principal da biblioteca. Ele possui parâmetros que são expli
 - **adjectives** = True se deseja remover os adjetivos do texto
 - **plural** = True converter todas as palavras do texto para singular
 
+```sh
+nlp_pt.proc_text(text = 'os corações valentes foram caminhando até chegar na Inglaterra.',verbs=True,string=True,adjectives=True,plural=True)
+```
+**Resultado:** `coracao inglaterra`
+
+--
+
+```sh
+nlp_pt.proc_text(text = 'os corações valentes foram caminhando até chegar na Inglaterra.',verbs=True,string=True,adjectives=False,plural=False)
+```
+**Resultado:** `coracoes valentes inglaterra`
+
+--
+
+```sh
+nlp_pt.proc_text(text = 'os corações valentes foram caminhando até chegar na Inglaterra.',verbs=False,string=False,adjectives=True,plural=True)
+```
+**Resultado:** `['coracao', 'caminhando', 'chegar', 'inglaterra']`
+
+---
 
 ### Versões Anteriores
 Para ver as versões anteriores da biblioteca (Incluindo as que fazem web scraping), veja as tags do projeto.
