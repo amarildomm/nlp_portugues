@@ -76,7 +76,7 @@ Esse é o método principal da biblioteca. Ele possui parâmetros que são expli
 -- Ex1: Removendo verbos, adjetivos, transformando para singular e retornando string
 
 ```sh
-nlp_pt.proc_text(text = 'os corações valentes foram caminhando até chegar na Inglaterra.',
+nlp_pt.proc_text(text = 'os corações valentes foram caminhando até chegar a Inglaterra.',
 verbs=True,string=True,adjectives=True,plural=True)
 ```
 **Resultado:** `coracao inglaterra`
@@ -84,7 +84,7 @@ verbs=True,string=True,adjectives=True,plural=True)
 -- Ex2: Removendo verbos, mantendo plural e adjetivos e retornando string
 
 ```sh
-nlp_pt.proc_text(text = 'os corações valentes foram caminhando até chegar na Inglaterra.',
+nlp_pt.proc_text(text = 'os corações valentes foram caminhando até chegar a Inglaterra.',
 verbs=True,string=True,adjectives=False,plural=False)
 ```
 **Resultado:** `coracoes valentes inglaterra`
@@ -92,7 +92,7 @@ verbs=True,string=True,adjectives=False,plural=False)
 -- Ex3: Removendo adjetivos, transformando para singular e retornando lista
 
 ```sh
-nlp_pt.proc_text(text = 'os corações valentes foram caminhando até chegar na Inglaterra.',
+nlp_pt.proc_text(text = 'os corações valentes foram caminhando até chegar a Inglaterra.',
 verbs=False,string=False,adjectives=True,plural=True)
 ```
 **Resultado:** `['coracao', 'caminhando', 'chegar', 'inglaterra']`
