@@ -71,21 +71,24 @@ Esse é o método principal da biblioteca. Ele possui parâmetros que são expli
 - **plural** = True converter todas as palavras do texto para singular
 
 ```sh
-nlp_pt.proc_text(text = 'os corações valentes foram caminhando até chegar na Inglaterra.',verbs=True,string=True,adjectives=True,plural=True)
+nlp_pt.proc_text(text = 'os corações valentes foram caminhando até chegar na Inglaterra.',
+verbs=True,string=True,adjectives=True,plural=True)
 ```
 **Resultado:** `coracao inglaterra`
 
 --
 
 ```sh
-nlp_pt.proc_text(text = 'os corações valentes foram caminhando até chegar na Inglaterra.',verbs=True,string=True,adjectives=False,plural=False)
+nlp_pt.proc_text(text = 'os corações valentes foram caminhando até chegar na Inglaterra.',
+verbs=True,string=True,adjectives=False,plural=False)
 ```
 **Resultado:** `coracoes valentes inglaterra`
 
 --
 
 ```sh
-nlp_pt.proc_text(text = 'os corações valentes foram caminhando até chegar na Inglaterra.',verbs=False,string=False,adjectives=True,plural=True)
+nlp_pt.proc_text(text = 'os corações valentes foram caminhando até chegar na Inglaterra.',
+verbs=False,string=False,adjectives=True,plural=True)
 ```
 **Resultado:** `['coracao', 'caminhando', 'chegar', 'inglaterra']`
 
