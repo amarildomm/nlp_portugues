@@ -15,7 +15,7 @@ Conteúdo criado durante o PhD em Information Science pela Universidade Federal 
 
 Escola de Ciência da Informação
 
-Data: 25/05/2020
+Data: 01/04/2022
 
 ## Listas de verbos, adjetivos e stop-words em português:
 
@@ -105,7 +105,7 @@ Para ver as versões anteriores da biblioteca (Incluindo as que fazem web scrapi
 ### Licença
 The MIT License (MIT)
 
-Copyright (c) 2020 Amarildo Magalhães 
+Copyright (c) 2022 Amarildo Magalhães 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
