@@ -70,7 +70,7 @@ Esse é o método principal da biblioteca. Ele possui parâmetros que são expli
 - **adjectives** = True se deseja remover os adjetivos do texto
 - **plural** = True converter todas as palavras do texto para singular
 
--- Removendo verbos, adjetivos, transformando para singular e retornando string
+-- Ex1: Removendo verbos, adjetivos, transformando para singular e retornando string
 
 ```sh
 nlp_pt.proc_text(text = 'os corações valentes foram caminhando até chegar na Inglaterra.',
@@ -78,7 +78,7 @@ verbs=True,string=True,adjectives=True,plural=True)
 ```
 **Resultado:** `coracao inglaterra`
 
---
+-- Ex2: Removendo verbos, mantendo plural e adjetivos e retornando string
 
 ```sh
 nlp_pt.proc_text(text = 'os corações valentes foram caminhando até chegar na Inglaterra.',
@@ -86,7 +86,7 @@ verbs=True,string=True,adjectives=False,plural=False)
 ```
 **Resultado:** `coracoes valentes inglaterra`
 
---
+-- Ex3: Removendo adjetivos, transformando para singular e retornando lista
 
 ```sh
 nlp_pt.proc_text(text = 'os corações valentes foram caminhando até chegar na Inglaterra.',
