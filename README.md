@@ -40,7 +40,7 @@ Esse método converte uma lista de tokens que contenham termos no plural para si
 ```sh
 nlp_pt.clear_text('Esse é um exemplo texto limpo com o método clear_text() 999 !!!')
 ```
-# Resultado: `esse e um exemplo texto limpo com o metodo cleartext`
+**Resultado:** `esse e um exemplo texto limpo com o metodo cleartext`
 
 2. Método plural2_singular():
 Esse método converte uma lista de tokens que contenham termos no plural para singular.
@@ -50,8 +50,8 @@ Para utilizá-lo passe os tokens já limpos sem acentos, caracteres especiais e 
 ```sh
 tokens_converter = ['caldos','leoes', 'nos', 'iguarias','marrons', 'jornais','caes', 'flores']
 nlp_pt.plural2_singular(tokens_converter)
-*['caldo', 'leao', 'no', 'iguaria', 'marrom', 'jornal', 'cao', 'flor']*
 ```
+**Resultado:** `['caldo', 'leao', 'no', 'iguaria', 'marrom', 'jornal', 'cao', 'flor']`
 
 ### Versões Anteriores
 Para ver as versões anteriores da biblioteca (Incluindo as que fazem web scraping), veja as tags do projeto.
