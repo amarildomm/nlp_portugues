@@ -7,46 +7,50 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-# Biblioteca para Processamento de Linguagem Natural em Português - nlp_portugues 
+## Biblioteca para Processamento de Linguagem Natural em Português - nlp_portugues
 
-Conteúdo para pré-processamento de Natural Language Processing (NLP) completo no idioma português
-Resumo: Conteúdo criado durante o PhD em Information Science pela Universidade Federal de Minas Gerais  
-Escola de Ciência da Informação
-Data: 25/05/2020
+Biblioteca para pré-processamento de Natural Language Processing (NLP) completa no idioma português
 
-# Listas de verbos, adjetivos e stop-words em português:
+Conteúdo criado durante o PhD em Information Science pela Universidade Federal de Minas Gerais
+Escola de Ciência da Informação Data: 25/05/2020
+
+## Listas de verbos, adjetivos e stop-words em português:
 
 	* listas_ptBR/stop_words.txt = Lista contendo 1731 stop-words em português
 	* listas_ptBR/adjetivos.json = Lista contendo 6627 adjetivos em português
 	* listas_ptBR/verbos.json    = Lista contendo 260524 verbos/conjugações em português
 
-# Classe preprocessing_pt_BR em Python:
+### Classe preprocessing_pt_BR em Python:
 
 Para usar as funções e listas de forma fácil, foi criada uma classe chamada preprocessing_ptBR dentro do pacote nlp_portugues.py. Para instanciar a classe, é necessário usar os comandos:
 
-{
-      "cell_type": "code",
-      "source": [
-        "from nlp_portugues import preprocessing_ptBR\n",
-        "nlp_pt = preprocessing_ptBR()"
-      ],
-      "metadata": {
-        "id": "cRszOib8pBRp"
-      },
-      "execution_count": 46,
-      "outputs": []
-    }
-# Usando métodos da classe:
+```sh
+import nlp_portugues as nlp
+nlp_pt = nlp.preprocessing_ptBR() 
+```
+### Usando métodos da classe:
+
+1. Método clear_text():
+Esse método remove de uma string acentos, caracteres especiais, números e converte todas de maíusculo para minúsculo:
 
 * plural2_singular(self,tokens):
 
 Esse método converte uma lista de tokens que contenham termos no plural para singular:
 
 ```sh
-tokens_converter = ['caldos','corações','eram']
-lista_singular = nlp_pt.plural2_singular(self, tokens_converter]
-tokens_converter 
-['caldo','coração','era']
+nlp_pt.clear_text('Esse é um exemplo texto limpo com o método clear_text() 999 !!!')
+*'esse e um exemplo texto limpo com o metodo cleartext'*
+```
+
+2. Método plural2_singular():
+Esse método converte uma lista de tokens que contenham termos no plural para singular.
+
+Para utilizá-lo passe os tokens já limpos sem acentos, caracteres especiais e números, que pode ser feito com o método clear_text().
+
+```sh
+tokens_converter = ['caldos','leoes', 'nos', 'iguarias','marrons', 'jornais','caes', 'flores']
+nlp_pt.plural2_singular(tokens_converter)
+*['caldo', 'leao', 'no', 'iguaria', 'marrom', 'jornal', 'cao', 'flor']*
 ```
 
 ### Versões Anteriores
