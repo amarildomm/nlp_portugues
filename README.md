@@ -9,7 +9,7 @@
 
 # Biblioteca para Processamento de Linguagem Natrual em Português - nlp_portugues 
 
-Conteúdo para preprocessamento de Natural Language Processing (NLP) completo no idioma português
+Conteúdo para pré-processamento de Natural Language Processing (NLP) completo no idioma português
 Resumo: Conteúdo criado durante o PhD em Information Science pela Universidade Federal de Minas Gerais  
 Escola de Ciência da Informação
 Data: 25/05/2020
