@@ -43,6 +43,8 @@ nlp_pt.clear_text('Esse é um exemplo de texto limpo com o método clear_text() 
 ```
 **Resultado:** `esse e um exemplo de texto limpo com o metodo cleartext`
 
+---
+
 2. Método plural2_singular():
 
 Esse método converte uma lista de tokens que contenham termos no plural para singular.
@@ -57,6 +59,16 @@ nlp_pt.plural2_singular(tokens_converter)
 
 ---
 
+3. Método proc_text():
+
+Esse é o método principal da biblioteca. Ele possui parâmetros que são explicados abaixo e podem executar diversas tarefas de NLP de uma única vez:
+
+- **text** = texto puro sem qualquer formatação
+- **verbs** = True se quiser remover verbos do texto
+- **string** = True se quiser que seja devolvida um texto ao invés de lista com tokens
+- **text_add** = Algum texto complementar ao parâmetro text
+- **adjectives** = True se deseja remover os adjetivos do texto
+- **plural** = True converter todas as palavras do texto para singular
 
 
 ### Versões Anteriores
