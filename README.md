@@ -22,15 +22,23 @@ Data: 25/05/2020
 
 # Classe preprocessing_pt_BR em Python:
 
-A classe preprocessing_ptBR dentro do pacote nlp_portugues.py contem as funçoes: 
+Para usar as funções e listas de forma fácil, foi criada uma classe chamada preprocessing_ptBR dentro do pacote nlp_portugues.py. Para instanciar a classe, é necessário usar os comandos:
 
-* plural2_singular(self,tokens):
-
-Essa classe converte uma lista de tokens que contenham termos no plural para singular
 ```sh
 import nlp_portugues as nlp
 nlp_pt = nlp.preprocessing_ptBR() 
-nlp_pt.plural2_singular(self,['caldos','corações','eram']
+```
+# Usando métodos da classe:
+
+* plural2_singular(self,tokens):
+
+Esse método converte uma lista de tokens que contenham termos no plural para singular:
+
+```sh
+tokens_converter = ['caldos','corações','eram']
+lista_singular = nlp_pt.plural2_singular(self, tokens_converter]
+tokens_converter 
+['caldo','coração','era']
 ```
 
 ### Versões Anteriores
