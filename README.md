@@ -31,6 +31,7 @@ nlp_pt = nlp.preprocessing_ptBR()
 ### Usando métodos da classe:
 
 1. Método clear_text():
+
 Esse método remove de uma string acentos, caracteres especiais, números e converte todas de maíusculo para minúsculo:
 
 * plural2_singular(self,tokens):
@@ -43,6 +44,7 @@ nlp_pt.clear_text('Esse é um exemplo de texto limpo com o método clear_text() 
 **Resultado:** `esse e um exemplo de texto limpo com o metodo cleartext`
 
 2. Método plural2_singular():
+
 Esse método converte uma lista de tokens que contenham termos no plural para singular.
 
 Para utilizá-lo passe os tokens já limpos sem acentos, caracteres especiais e números, que pode ser feito com o método clear_text().
@@ -52,6 +54,10 @@ tokens_converter = ['caldos','leoes', 'nos', 'iguarias','marrons', 'jornais','ca
 nlp_pt.plural2_singular(tokens_converter)
 ```
 **Resultado:** `['caldo', 'leao', 'no', 'iguaria', 'marrom', 'jornal', 'cao', 'flor']`
+
+---
+
+
 
 ### Versões Anteriores
 Para ver as versões anteriores da biblioteca (Incluindo as que fazem web scraping), veja as tags do projeto.
