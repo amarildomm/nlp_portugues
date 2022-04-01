@@ -12,7 +12,10 @@
 Biblioteca para pré-processamento de Natural Language Processing (NLP) completa no idioma português
 
 Conteúdo criado durante o PhD em Information Science pela Universidade Federal de Minas Gerais
-Escola de Ciência da Informação Data: 25/05/2020
+
+Escola de Ciência da Informação
+
+Data: 25/05/2020
 
 ## Listas de verbos, adjetivos e stop-words em português:
 
