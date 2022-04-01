@@ -24,10 +24,18 @@ Data: 25/05/2020
 
 Para usar as funções e listas de forma fácil, foi criada uma classe chamada preprocessing_ptBR dentro do pacote nlp_portugues.py. Para instanciar a classe, é necessário usar os comandos:
 
-```sh
-import nlp_portugues as nlp
-nlp_pt = nlp.preprocessing_ptBR() 
-```
+{
+      "cell_type": "code",
+      "source": [
+        "from nlp_portugues import preprocessing_ptBR\n",
+        "nlp_pt = preprocessing_ptBR()"
+      ],
+      "metadata": {
+        "id": "cRszOib8pBRp"
+      },
+      "execution_count": 46,
+      "outputs": []
+    }
 # Usando métodos da classe:
 
 * plural2_singular(self,tokens):
