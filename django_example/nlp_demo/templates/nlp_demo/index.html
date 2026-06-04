@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLP Português - Demo</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f4f8;
+            color: #2d3748;
+            min-height: 100vh;
+        }
+        header {
+            background: #2b6cb0;
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        header h1 { font-size: 1.6rem; }
+        header p { font-size: 0.9rem; opacity: 0.85; margin-top: 0.3rem; }
+        .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        h2 { font-size: 1.15rem; color: #2b6cb0; margin-bottom: 1rem; }
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 0.85rem;
+            border: 1.5px solid #cbd5e0;
+            border-radius: 7px;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+            transition: border-color 0.2s;
+        }
+        textarea:focus { outline: none; border-color: #2b6cb0; }
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 0.75rem;
+            margin: 1.2rem 0;
+        }
+        .option-label {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.65rem 1rem;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+        .option-label:hover { border-color: #2b6cb0; background: #ebf8ff; }
+        .option-label input[type="checkbox"] { width: 16px; height: 16px; accent-color: #2b6cb0; }
+        button[type="submit"] {
+            background: #2b6cb0;
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 7px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+        button[type="submit"]:hover { background: #2c5282; }
+        .result-card { border-left: 4px solid #2b6cb0; }
+        .result-original {
+            background: #f7fafc;
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
+            font-style: italic;
+            color: #4a5568;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        .result-output {
+            background: #ebf8ff;
+            border-radius: 6px;
+            padding: 1rem;
+            font-size: 1.05rem;
+            color: #1a365d;
+            word-break: break-word;
+        }
+        .token {
+            display: inline-block;
+            background: #2b6cb0;
+            color: white;
+            border-radius: 20px;
+            padding: 0.2rem 0.7rem;
+            margin: 0.2rem;
+            font-size: 0.9rem;
+        }
+        .info-box {
+            background: #f0fff4;
+            border: 1px solid #9ae6b4;
+            border-radius: 7px;
+            padding: 1rem 1.2rem;
+            font-size: 0.88rem;
+            color: #276749;
+            margin-bottom: 1.2rem;
+        }
+        .info-box code {
+            background: #c6f6d5;
+            padding: 0.1rem 0.35rem;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .method-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        .method-table th, .method-table td {
+            text-align: left;
+            padding: 0.6rem 0.85rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .method-table th { background: #ebf8ff; color: #2b6cb0; font-weight: 600; }
+        .method-table tr:last-child td { border-bottom: none; }
+        .badge {
+            display: inline-block;
+            background: #bee3f8;
+            color: #2b6cb0;
+            border-radius: 20px;
+            padding: 0.1rem 0.55rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+        .run-instructions {
+            background: #fffaf0;
+            border: 1px solid #f6ad55;
+            border-radius: 7px;
+            padding: 1rem 1.2rem;
+            font-size: 0.88rem;
+            color: #744210;
+        }
+        .run-instructions code {
+            background: #feebc8;
+            padding: 0.1rem 0.35rem;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .run-instructions ol { margin-left: 1.2rem; margin-top: 0.5rem; line-height: 1.8; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>NLP Português &mdash; Demo</h1>
+    <p>Biblioteca de Pré-processamento de Linguagem Natural em Português &bull; UFMG &bull; Escola de Ciência da Informação</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Processar Texto</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <textarea name="texto" placeholder="Digite ou cole um texto em português aqui...">{{ texto_original }}</textarea>
+
+            <div class="options-grid">
+                <label class="option-label">
+                    <input type="checkbox" name="verbs" {% if remover_verbos %}checked{% endif %}>
+                    Remover verbos
+                </label>
+                <label class="option-label">
+                    <input type="checkbox" name="adjectives" {% if remover_adjetivos %}checked{% endif %}>
+                    Remover adjetivos
+                </label>
+                <label class="option-label">
+                    <input type="checkbox" name="plural" {% if converter_singular %}checked{% endif %}>
+                    Plural &rarr; Singular
+                </label>
+                <label class="option-label">
+                    <input type="checkbox" name="string" {% if retornar_string %}checked{% endif %}>
+                    Retornar como string
+                </label>
+            </div>
+
+            <button type="submit">Processar</button>
+        </form>
+    </div>
+
+    {% if resultado is not None %}
+    <div class="card result-card">
+        <h2>Resultado</h2>
+        <p style="font-size:0.85rem;color:#718096;margin-bottom:0.6rem;">Texto original:</p>
+        <div class="result-original">{{ texto_original }}</div>
+
+        <p style="font-size:0.85rem;color:#718096;margin-bottom:0.6rem;">
+            Resultado
+            {% if retornar_string %}
+                <span class="badge">string</span>
+            {% else %}
+                <span class="badge">lista de tokens</span>
+            {% endif %}
+            :
+        </p>
+        <div class="result-output">
+            {% if retornar_string %}
+                {{ resultado }}
+            {% else %}
+                {% for token in resultado %}
+                    <span class="token">{{ token }}</span>
+                {% endfor %}
+                {% if not resultado %}
+                    <em style="color:#a0aec0;">Nenhum token restante ap&oacute;s o processamento.</em>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="card">
+        <h2>Sobre a Biblioteca</h2>
+        <div class="info-box">
+            Esta p&aacute;gina demonstra a classe <code>preprocessing_ptBR</code> do pacote <code>nlp_portugues.py</code>,
+            criada durante pesquisa de doutorado na UFMG. As listas incluem
+            <strong>1.731 stop-words</strong>, <strong>6.627 adjetivos</strong> e
+            <strong>260.524 verbos/conjuga&ccedil;&otilde;es</strong> em portugu&ecirc;s.
+        </div>
+        <table class="method-table">
+            <thead>
+                <tr>
+                    <th>M&eacute;todo</th>
+                    <th>Descri&ccedil;&atilde;o</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>clear_text(texto)</code></td>
+                    <td>Remove acentos, caracteres especiais e n&uacute;meros; converte para min&uacute;sculas</td>
+                </tr>
+                <tr>
+                    <td><code>plural2_singular(tokens)</code></td>
+                    <td>Converte lista de tokens do plural para singular</td>
+                </tr>
+                <tr>
+                    <td><code>proc_text(text, verbs, adjectives, plural, string)</code></td>
+                    <td>Pr&eacute;-processamento completo: remove stop-words e, opcionalmente, verbos e adjetivos</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Como Executar</h2>
+        <div class="run-instructions">
+            Execute os comandos abaixo a partir da raiz do reposit&oacute;rio:
+            <ol>
+                <li>Instalar depend&ecirc;ncias: <code>pip install -r django_example/requirements.txt</code></li>
+                <li>Entrar na pasta: <code>cd django_example</code></li>
+                <li>Iniciar o servidor: <code>python manage.py runserver</code></li>
+                <li>Abrir no navegador: <code>http://127.0.0.1:8000/</code></li>
+            </ol>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
